@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 
 public class JavaFormatter {
 	public static void main(String[] args) {
+		int indentSize = 0;
+		String currentLine;
 		try {
 			Scanner console = new Scanner(System.in);
 			System.out.print("What file would you like to format?: ");
@@ -12,7 +14,11 @@ public class JavaFormatter {
 			Scanner file = new Scanner(fileName);
 
 			while(file.hasNextLine()) {
-				System.out.println(file.nextLine());
+				currentLine = file.nextLine();
+				if (currentLine.contains("{")) indentSize += 4;
+				if (currentLine.contains("}")) indentSize -= 4;
+				for (int i = 0; i < indentSize; i++) System.out.print(" ");
+				System.out.println(currentLine);
 			}
 		}
 		catch (FileNotFoundException e) {

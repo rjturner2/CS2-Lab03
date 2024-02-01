@@ -2,6 +2,7 @@ public class VowelCount {
 	public static void main(String[] args) {
 		String[][] charactersPerWord = seperateString(args[0]);
 		int[] vowelCount = new int[]{0, 0, 0, 0, 0};
+		System.out.println("A, E, I, O, U")
 
 		for (int i = 0; i < charactersPerWord.length; i++) {
 			for (int j = 0; j < charactersPerWord[i].length; j++) {
